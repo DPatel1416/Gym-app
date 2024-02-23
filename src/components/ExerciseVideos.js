@@ -1,16 +1,24 @@
+// Import necessary modules from React and Material-UI
 import React from 'react';
 import { Typography, Box, Stack } from '@mui/material';
+// Import Loader component
 import Loader from './Loader';
 
+// Functional component for displaying exercise videos
 const ExerciseVideos = ({ exerciseVideos, name }) => {
+  // Render loader if there are no exercise videos
   if (!exerciseVideos.length) return <Loader />;
 
+  // Render exercise videos
   return (
     <Box sx={{ marginTop: { lg: '203px', xs: '20px' } }} p="20px">
+      {/* Heading for exercise videos */}
       <Typography sx={{ fontSize: { lg: '44px', xs: '25px' } }} fontWeight={700} color="#000" mb="33px">
         Watch <span style={{ color: '#FF2625', textTransform: 'capitalize' }}>{name}</span> exercise videos
       </Typography>
+      {/* Stack for displaying exercise videos */}
       <Stack sx={{ flexDirection: { lg: 'row' }, gap: { lg: '110px', xs: '0px' } }} justifyContent="flex-start" flexWrap="wrap" alignItems="center">
+        {/* Map through exercise videos and render a link for each */}
         {exerciseVideos?.slice(0, 6)?.map((item, index) => (
           <a
             key={index}
@@ -19,11 +27,14 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
             target="_blank"
             rel="noreferrer"
           >
+            {/* Display video thumbnail */}
             <img style={{ borderTopLeftRadius: '20px' }} src={item.video.thumbnails[0].url} alt={item.video.title} />
             <Box>
+              {/* Display video title */}
               <Typography sx={{ fontSize: { lg: '28px', xs: '18px' } }} fontWeight={600} color="#000">
                 {item.video.title}
               </Typography>
+              {/* Display video channel name */}
               <Typography fontSize="14px" color="#000">
                 {item.video.channelName}
               </Typography>
@@ -35,4 +46,5 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
   );
 };
 
+// Export the ExerciseVideos component as the default export
 export default ExerciseVideos;
