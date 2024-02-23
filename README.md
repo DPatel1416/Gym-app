@@ -34,4 +34,4 @@
 - View exercises on the homepage.
 - Search for exercises using the search bar.
 - Click on an exercise card to view details and watch videos.
-- Use the horizontal scrollbar to navigate through exercises.
+- Use the horizontal scrollbar to navigate through exercises.å
